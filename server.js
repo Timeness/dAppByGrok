@@ -1,34 +1,26 @@
-require('dotenv').config();
 const express = require('express');
 const axios = require('axios');
+const path = require('path');
 const app = express();
-const port = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3000;
 
-app.set('view engine', 'ejs');
-app.use(express.static('public'));
-app.use(express.urlencoded({ extended: true }));
+app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.json());
 
 app.get('/', (req, res) => {
-  res.render('index', { results: null });
+    res.sendFile(path.join(__dirname, 'views', 'index.html'));
 });
 
-app.post('/search', async (req, res) => {
-  const query = req.body.query;
-  try {
-    const response = await axios.get('https://api.search.brave.com/res/v1/web/search', {
-      params: { q: query },
-      headers: { 
-        'Accept': 'application/json',
-        'X-Subscription-Token': process.env.BRAVE_API_KEY 
-      }
-    });
-    res.render('index', { results: response.data.web.results });
-  } catch (error) {
-    console.error(error);
-    res.render('index', { results: null, error: 'Search failed' });
-  }
+app.get('/search', async (req, res) => {
+    const query = req.query.q;
+    try {
+        const response = await axios.get(`https://api.duckduckgo.com/?q=${encodeURIComponent(query)}&format=json`);
+        res.json(response.data);
+    } catch (error) {
+        res.status(500).json({ error: 'Search failed' });
+    }
 });
 
-app.listen(port, () => {
-  console.log(`Server running at http://localhost:${port}`);
+app.listen(PORT, () => {
+    console.log(`Server running on port https://localhost:${PORT}`);
 });

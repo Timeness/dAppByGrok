@@ -1,20 +1,17 @@
 {
-  "name": "my-dapp-by-grok",
+  "name": "dapp-search",
   "version": "1.0.0",
-  "description": "A Professional DApp Website by Grok.",
+  "description": "A dApp Search Website by Grok.",
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
     "dev": "nodemon server.js"
   },
   "dependencies": {
-    "axios": "^1.6.7",
-    "dotenv": "^16.4.5",
-    "ejs": "^3.1.9",
-    "express": "^4.18.2"
+    "express": "^4.18.2",
+    "axios": "^1.6.7"
   },
   "devDependencies": {
-    "nodemon": "^3.0.3",
-    "tailwindcss": "^3.4.1"
+    "nodemon": "^3.0.1"
   }
 }

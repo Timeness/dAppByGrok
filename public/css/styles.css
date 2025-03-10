@@ -1,23 +1,12 @@
-@import url('https://fonts.googleapis.com/css2?family=Signika:wght@300;400;600;700&display=swap');
-
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
 body {
-  font-family: 'Signika', sans-serif;
-  @apply bg-gradient-to-br from-gray-900 via-purple-900 to-indigo-900 text-white;
+    font-family: 'Signika', sans-serif;
 }
 
-.search-container {
-  @apply relative w-full max-w-2xl mx-auto;
+.tab {
+    transition: all 0.3s ease;
 }
 
-.search-glow {
-  @apply absolute inset-0 -z-10 bg-purple-500/30 blur-3xl rounded-full;
-}
-
-.card {
-  @apply bg-gray-800/80 backdrop-blur-md border border-gray-700/50 rounded-lg p-6 
-  hover:shadow-xl hover:shadow-purple-500/20 transition-all duration-300;
+.tab.active {
+    background-color: #7c3aed;
+    transform: scale(1.05);
 }

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DApp Search</title>
+    <link href="https://fonts.googleapis.com/css2?family=Signika:wght@400;700&display=swap" rel="stylesheet">
+    <link href="/css/styles.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gradient-to-br from-indigo-900 via-purple-900 to-pink-900 min-h-screen font-['Signika'] text-white">
+    <div class="container mx-auto p-6">
+        <!-- Tab Bar -->
+        <div id="tabBar" class="flex gap-2 mb-4 overflow-x-auto bg-black/20 p-2 rounded-lg">
+            <button id="newTab" class="bg-indigo-600 hover:bg-indigo-700 px-4 py-2 rounded-full transition-colors">
+                + New Tab
+            </button>
+        </div>
+
+        <!-- Search Container -->
+        <div class="max-w-3xl mx-auto">
+            <div class="flex gap-2 mb-4">
+                <input 
+                    type="text" 
+                    id="searchInput" 
+                    placeholder="Search with DuckDuckGo..." 
+                    class="w-full p-4 rounded-full bg-white/10 border border-white/20 focus:outline-none focus:border-indigo-500 text-white placeholder-white/50"
+                >
+                <button id="searchBtn" class="bg-indigo-600 hover:bg-indigo-700 p-4 rounded-full transition-colors">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                    </svg>
+                </button>
+                <button id="reloadBtn" class="bg-indigo-600 hover:bg-indigo-700 p-4 rounded-full transition-colors">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9H0m0 0v5h5.582M12 4v5h5" />
+                    </svg>
+                </button>
+            </div>
+
+            <!-- Results -->
+            <div id="results" class="space-y-4"></div>
+
+            <!-- Search History -->
+            <div class="mt-8">
+                <h2 class="text-xl font-bold mb-2">Search History</h2>
+                <div id="history" class="space-y-2"></div>
+            </div>
+        </div>
+    </div>
+    <script src="/js/script.js"></script>
+</body>
+</html>
